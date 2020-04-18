@@ -1,0 +1,186 @@
+@import '../../assets/css/variables.scss';
+
+.rps-game-area {
+    z-index: 1;
+    margin-top: 40px;
+}
+
+.choice-area {
+    display: flex;
+    width: 450px;
+    height: 450px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    z-index: 1;
+
+    .each-choice.rock {
+        margin-top: -50px;
+    }
+}
+
+.each-choice {
+    width: 153px;
+    height: 153px;
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: inset 0px 12px 4px $shadow;
+    position: relative;
+    user-select: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:after {
+        position: absolute;
+        top: -25px;
+        bottom: -25px;
+        left: -25px;
+        right: -25px;
+        content: '';
+        z-index: -1;
+        border-radius: 50%;
+    }
+
+    img {
+        height: 80px;
+        width: 65px;
+    }
+}
+
+.paper {
+    &:after {
+        box-shadow: 1px 10px 2px 1px $dark-blue;
+        background: $paper-border;
+    }
+}
+
+.scissors {
+    &:after {
+        box-shadow: 1px 10px 2px 1px $dark-orange;
+        background: $scissors-border;
+    }
+}
+
+.rock {
+    &:after {
+        box-shadow: 1px 10px 2px 1px $dark-red;
+        background: $rock-border;
+    }
+}
+
+.selected-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding-top: 80px;
+    width: 700px;
+
+    .each-choice {
+        cursor: auto;
+        position: relative;
+
+        .choice-text {
+            color: $white;
+            font-size: 20px;
+            font-weight: 700;
+            position: absolute;
+            top: -80px;
+        }
+    }
+
+    .waiting {
+        background: $dark-shadow;
+        box-shadow: none;
+    }
+}
+
+.results {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+
+    svg {
+        fill: $red;
+    }
+
+    span {
+        color: $white;
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        border-radius: 5px;
+        color: $red;
+        font-weight: 700;
+        height: 50px;
+        letter-spacing: 5px;
+        outline: 0;
+        width: 220px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .choice-area,
+    .selected-area {
+        width: 100%;
+    }
+
+    .each-choice {
+        width: 120px;
+        height: 120px;
+    }
+
+    .selected-area {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+        justify-content: center;
+
+        .each-choice {
+            .choice-text {
+                top: -55px;
+                white-space: nowrap;
+            }
+
+            &:last-child {
+                margin-top: 20px;
+            }
+
+            &.waiting {
+                margin-top: -5px;
+                border: 25px solid $dark-shadow;
+            }
+        }
+
+        .results-icon {
+            width: 117px;
+            height: 87px;
+            position: relative;
+            margin: 50px 0px 20px 0;
+
+            img {
+                position: absolute;
+                top: -87px;
+            }
+        }
+
+        .score {
+            margin: 40px 0 50px 0;
+        }
+    }
+
+    .choice-area {
+        margin-top: 120px;
+        max-width: 350px;
+
+        .each-choice.rock {
+            margin-top: -120px;
+        }
+    }
+}

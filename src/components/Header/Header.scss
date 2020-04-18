@@ -1,0 +1,63 @@
+@import '../../assets/css/variables.scss';
+
+.rps-header {
+    align-items: center;
+    border-radius: 5px;
+    border: solid 1px $border-grey;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+    max-width: 700px;
+    padding: 25px;
+    width: 100%;
+    z-index: 1;
+}
+
+.rps-score {
+    align-items: center;
+    background: $white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px;
+    transition: transform  600ms cubic-bezier(.33,.11,.02,.99);
+    box-shadow: 0 4px  4px  rgba(0, 0, 0, .1),
+                0 1px  6px  rgba(0, 0, 0, .05),
+                0 8px  8px  rgba(0, 0, 0, .1),
+                0 16px 16px rgba(0, 0, 0, .1),
+                8px 32px 32px rgba(0, 0, 0, .15),
+                8px 64px 64px rgba(0, 0, 0, .15);
+
+    &:hover {
+        transform: scale(1.2) translateY(0.5rem);
+    }
+
+    small {
+        letter-spacing: 3px;
+    }
+
+    span {
+        font-size: 50px;
+        font-weight: 700;
+    }
+}
+
+@media all and (max-width: 786px) {
+    .rps-header {
+        position: fixed;
+        top: 10px;
+        z-index: 10000;
+        border: none;
+        margin: 0;
+        padding: 0px;
+        left: 10px;
+
+        div:first-child {
+            display: none;
+        }
+    }
+
+    .rps-score {
+        padding: 20px;
+    }
+}

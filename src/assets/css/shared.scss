@@ -1,0 +1,69 @@
+@import '~normalize.css';
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:400,600,700&display=swap');
+@import './variables.scss';
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: $background;
+    background-size: cover;
+}
+
+.hide {
+    display: none;
+}
+
+.main {
+    font-family: $font;
+    width: 100%;
+    height: 100%;
+}
+
+.rps-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: $container-size;
+}
+
+.made-by {
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    img {
+        width: 20px;
+        vertical-align: middle;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .main {
+        padding-top: 10px;
+        padding-bottom: 40px;
+    }
+
+    .rps-container {
+        max-width: $mob-container-size;
+        width: $mob-container-size;
+        height: auto;
+    }
+
+    .rps-container {
+        width: calc(100% - 30px);
+        max-width: 100%;
+        padding-top: 6px;
+        margin-top: 0;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .rps-container {
+        width: 100%;
+    }
+}
